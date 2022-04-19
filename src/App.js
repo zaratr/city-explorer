@@ -38,9 +38,10 @@ class App extends React.Component{
         this.setState({data: cityData.data[0], lat : parseInt(cityData.data[0].lat), lon : parseInt(cityData.data[0].lon)});//grabs data at location 0
 
      }
-     catch(event)
+     catch(anError)
      {
-       this.openModal(event)
+       this.openModal(anError);
+       console.error(anError.name + ': ' + anError.message)
      }
     }
     hideModal = () => 
