@@ -15,7 +15,8 @@ class Location extends React.Component
     render()
     {
         let map = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.props.lat},${this.props.long}&zoom=10`;
-        return(
+        return
+        (
             <Card id='locationCard' style={{width:'24rem'}}>
                 <Card.Body>
                     <Card.Title id='locTitle'>{this.props.city}</Card.Title>
