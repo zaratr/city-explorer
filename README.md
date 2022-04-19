@@ -21,14 +21,14 @@
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
-![RoughDraft and Overview of Web Request Response cycle](public/APILab06.jpg)
+![RoughDraft and Overview of Web Request Response cycle (WRRC)](public/APILab06.jpg)
 
-Name of feature: ________________________________
+Name of feature: Asyncronous Code API and GEOCODING
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 3 hours
 
-Start time: _____
+Start time: 1300
 
-Finish time: _____
+Finish time: 1700
 
-Actual time needed to complete: _____
+Actual time needed to complete: 3 hours
