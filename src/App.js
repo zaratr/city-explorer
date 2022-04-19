@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import { Button, Form } from 'react-bootstrap';
