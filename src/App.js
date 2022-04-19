@@ -41,7 +41,8 @@ class App extends React.Component{
      catch(anError)
      {
        this.openModal(anError);
-       console.error(anError.name + ': ' + anError.message)
+       //TODO: make an error message
+       console.error(anError.name + ': ' + anError.message);
      }
     }
     hideModal = () => 
