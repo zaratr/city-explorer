@@ -4,8 +4,10 @@ import { Button, Form } from 'react-bootstrap';
 import Location from './Location';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
+import Weather from './Weather'
 
-class App extends React.Component{
+class App extends React.Component
+{
   constructor(props)
   {
     super(props);
@@ -16,7 +18,8 @@ class App extends React.Component{
       lat: null,
       lon: null,
       errorMessage: '',
-      modalDtaState: false
+      modalDtaState: false,
+      weatherReporter: ''
 
     };
   }
@@ -29,21 +32,45 @@ class App extends React.Component{
     handleCitySubmit = async(e) =>
     {
       e.preventDefault();
-      try{
+      try
+      {
         /*
         WARNING: always make sure you await for data with async
         */
+       /*UPDATE: the old way without server requests */
         let cityData = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.location}&format=json`);
         this.setState({data: cityData.data[0], lat : parseInt(cityData.data[0].lat), lon : parseInt(cityData.data[0].lon)});//grabs data at location 0
-
-     }
-     catch(anError)
-     {
-       this.openModal(anError);
-       //TODO: make an error message
-       console.error(anError.name + ': ' + anError.message);
-     }
+        this.handleForecast();
+      }
+      catch(anError)
+      {
+        this.openModal(anError);
+        //TODO: make an error message
+        console.error(anError.name + ': ' + anError.message);
+      }
     }
+
+    handleForecast = async () =>
+    {
+      //TODO: check if removing default is needed
+      try
+      {
+          /*UPDATE: new way with server requesting*/
+        let url = `${process.env.REACT_APP_SERVER}/weather?city_name=${this.state.location}`;
+        let daWeather = await axios.get(url);
+        this.setState({
+          weatherReporter : daWeather.data,
+        })
+      }
+      catch(e)
+      {
+        this.openModal(anError);
+        //TODO: make an error message
+        console.error(anError.name + ': ' + anError.message);
+      }
+    }
+
+     
     hideModal = () => 
     {
       this.setState({
@@ -83,6 +110,15 @@ class App extends React.Component{
           long={this.state.lon}
           />
       ): null}
+      {this.state.weatherReporter ? (
+        <WeatherReporter
+          city={this.state.data.display_name}//has been given from above line: 106
+          forecast={weatherReporter}
+          //weather reporter has all info to pass on
+        />
+      ):null}
+
+
       </>
     );
   }
