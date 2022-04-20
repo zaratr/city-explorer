@@ -21,7 +21,8 @@
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
-![RoughDraft and Overview of Web Request Response cycle (WRRC)](public/APILab06.jpg)
+![Lab 06 RoughDraft and Overview of Web Request Response cycle (WRRC)](public/APILab06.jpg)
+![Lab 07 Overview of Web Request Response cycle (WRRC)](public/APILab06.jpg)
 
 Name of feature: Asyncronous Code API and GEOCODING
 
@@ -32,3 +33,15 @@ Start time: 1300
 Finish time: 1700
 
 Actual time needed to complete: 3 hours
+
+
+
+Name of feature: Custom Servers With Node and Express
+
+Estimate of time needed to complete: _____
+
+Start time: 1500
+
+Finish time: 1700
+
+Actual time needed to complete: 4 hours
