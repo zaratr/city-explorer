@@ -13,7 +13,7 @@ class App extends React.Component
     super(props);
     this.state = 
     {
-      data: {},//receives from child - empty for now
+      data: 0,//receives from child - empty for now
       location: '',
       lat: null,
       lon: null,
@@ -62,7 +62,6 @@ class App extends React.Component
           /*UPDATE: new way with server requesting*/
         let url = `${process.env.REACT_APP_SERVER}/weather?city_name=${this.state.location}`;
         let daWeather = await axios.get(url);
-        console.log(typeof(daWeather.data))
         this.setState({
           weatherReporter : daWeather.data,
         })
@@ -106,7 +105,7 @@ class App extends React.Component
         onClick={this.handleCitySubmit}
         >Explore!</Button>
       </Form>
-      {this.state.data.display_name ? (
+      {this.state.data ? (
         <Location
           city={this.state.data.display_name}
           lat={this.state.lat}

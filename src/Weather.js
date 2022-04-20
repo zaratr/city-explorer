@@ -14,16 +14,13 @@ class WeatherReporter extends React.Component
 
                         </Card.Title>
                         <Card.Title>
-                            la tiempo hoy {this.props.forecast[0].valid_date} 
-                            es {this.props.forecast[0].weather.description}
+                            la tiempo hoy {this.props.forecast[0].valid_date} y {this.props.forecast[0].weather.description}
                         </Card.Title>
                         <Card.Title>
-                            la tiempo hoy {this.props.forecast[1].valid_date} 
-                            es {this.props.forecast[1].weather.description}
+                            la tiempo hoy {this.props.forecast[1].valid_date} y {this.props.forecast[1].weather.description}
                         </Card.Title>
                         <Card.Title>
-                            la tiempo hoy {this.props.forecast[2].valid_date} 
-                            es {this.props.forecast[2].weather.description}
+                            la tiempo hoy {this.props.forecast[2].valid_date} y {this.props.forecast[2].weather.description}
                         </Card.Title>
                     </Card.Body>
                 </Card>
