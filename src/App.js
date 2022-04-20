@@ -53,6 +53,7 @@ class App extends React.Component
       }
     }
 
+
     handleForecast = async () =>
     {
       //TODO: check if removing default is needed
