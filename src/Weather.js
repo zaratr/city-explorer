@@ -25,10 +25,6 @@ class WeatherReporter extends React.Component
                             la tiempo hoy {this.props.forecast[2].valid_date} 
                             es {this.props.forecast[2].weather.description}
                         </Card.Title>
-                        <Card.Title>
-                            la tiempo hoy {this.props.forecast[3].valid_date} 
-                            es {this.props.forecast[3].weather.description}
-                        </Card.Title>
                     </Card.Body>
                 </Card>
             
