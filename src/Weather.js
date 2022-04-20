@@ -36,3 +36,5 @@ class WeatherReporter extends React.Component
         )
     }
 }
+
+export default WeatherReporter;

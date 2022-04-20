@@ -4,7 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import Location from './Location';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import Weather from './Weather'
+import WeatherReporter from './Weather'
 
 class App extends React.Component
 {
@@ -20,6 +20,7 @@ class App extends React.Component
       errorMessage: '',
       modalDtaState: false,
       weatherReporter: ''
+      //weatherReporter: {}
 
     };
   }
@@ -39,7 +40,9 @@ class App extends React.Component
         */
        /*UPDATE: the old way without server requests */
         let cityData = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.location}&format=json`);
-        this.setState({data: cityData.data[0], lat : parseInt(cityData.data[0].lat), lon : parseInt(cityData.data[0].lon)});//grabs data at location 0
+        this.setState({
+          data: cityData.data[0], lat : parseInt(cityData.data[0].lat), lon : parseInt(cityData.data[0].lon
+            )});//grabs data at location 0
         this.handleForecast();
       }
       catch(anError)
@@ -58,11 +61,12 @@ class App extends React.Component
           /*UPDATE: new way with server requesting*/
         let url = `${process.env.REACT_APP_SERVER}/weather?city_name=${this.state.location}`;
         let daWeather = await axios.get(url);
+        console.log(typeof(daWeather.data))
         this.setState({
           weatherReporter : daWeather.data,
         })
       }
-      catch(e)
+      catch(anError)
       {
         this.openModal(anError);
         //TODO: make an error message
@@ -113,7 +117,7 @@ class App extends React.Component
       {this.state.weatherReporter ? (
         <WeatherReporter
           city={this.state.data.display_name}//has been given from above line: 106
-          forecast={weatherReporter}
+          forecast={this.state.weatherReporter.data}
           //weather reporter has all info to pass on
         />
       ):null}
