@@ -93,8 +93,6 @@ class App extends React.Component
   render()
   {
     return (
-      /*
-      */
       <>
       <Form id='daCity'>
         <Form.Label id='formLabel'> City Explorer!
