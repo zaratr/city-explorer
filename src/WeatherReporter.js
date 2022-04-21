@@ -1,5 +1,6 @@
 import React from 'react';
 import {Card} from 'react-bootstrap';
+import WeatherDay from './WeatherDay'
 
 class WeatherReporter extends React.Component
 {
@@ -15,9 +16,12 @@ class WeatherReporter extends React.Component
                         </Card.Title>
                         {this.props.forecast.map((element, i) =>{
                             return (
-                        <Card.Title key={i}>
-                            la tiempo hoy {element.datetime} y {element.description}
-                        </Card.Title>
+                                <WeatherDay 
+                                key = {i}
+                                datetime = {element.datetime}
+                                description ={element.description}
+                                />
+
                             )
                         })}
                     </Card.Body>

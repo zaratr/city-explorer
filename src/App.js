@@ -34,7 +34,6 @@ class App extends React.Component {
     try {
       /*
       WARNING: always make sure you await for data with async
-      https://api.themoviedb.org/3/movie/550?api_key=17f3a718b0f5d36680aae68a930ccfa4
       */
       /*UPDATE: the old way without server requests */
 
