@@ -23,6 +23,7 @@ class Location extends React.Component
                 </Card.Body>
 
             </Card>
+
         );
     }
 }
