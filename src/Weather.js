@@ -13,15 +13,13 @@ class WeatherReporter extends React.Component
                             La tiemp hoy por {this.props.city}
 
                         </Card.Title>
-                        <Card.Title>
-                            la tiempo hoy {this.props.forecast[0].valid_date} y {this.props.forecast[0].weather.description}
+                        {this.props.forecast.map((element, i) =>{
+                            return (
+                        <Card.Title key={i}>
+                            la tiempo hoy {element.datetime} y {element.description}
                         </Card.Title>
-                        <Card.Title>
-                            la tiempo hoy {this.props.forecast[1].valid_date} y {this.props.forecast[1].weather.description}
-                        </Card.Title>
-                        <Card.Title>
-                            la tiempo hoy {this.props.forecast[2].valid_date} y {this.props.forecast[2].weather.description}
-                        </Card.Title>
+                            )
+                        })}
                     </Card.Body>
                 </Card>
             
