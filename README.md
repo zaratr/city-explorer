@@ -42,11 +42,30 @@ Finish time: 1700
 
 Actual time needed to complete: 3 hours
 
+Name of feature: City Explorer Node Express
 
+Estimate of time needed to complete: 2 hours
+
+Start time: 1500
+Finish time: 1700
+
+Actual time needed to complete: 4 hours
 
 Name of feature: Custom Servers With Node and Express
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: four hours
+
+Start time: 1500
+
+Finish time: 1700
+
+Actual time needed to complete: 4 hours
+
+
+
+Name of feature: Refactoring into Modules
+
+Estimate of time needed to complete: four hours
 
 Start time: 1500
 
