@@ -21,6 +21,7 @@ class Movies extends React.Component
                                 Movie image: {element.image_url}
                                 Movie popularity: {element.popularity}
                                 Movie release date: {element.release_on}
+                            <Card.Img src={element.image_url}></Card.Img>
                             </Card.Title>
                         )
                     })}
