@@ -25,8 +25,9 @@
 ![Lab 06 RoughDraft and Overview of Web Request Response cycle (WRRC)](public/APILab06.jpg)
 ### Lab07 Web Request Response Cycle (WRRC) 
 ![Lab 07 Overview of Web Request Response cycle (WRRC)](public/Lab7.jpg)
+
 ### Lab08 Web Request Response Cycle (WRRC) 
-![Lab 07 Overview of Web Request Response cycle (WRRC)](public/Lab08.jpg)
+![Lab 08 Overview of Web Request Response cycle (WRRC)](public/Lab08.jpg)
 
 
 Name of feature: Asyncronous Code API and GEOCODING
