@@ -3,22 +3,22 @@ import axios from 'axios';
 import { Button, Form } from 'react-bootstrap';
 import React from 'react';
 import Location from './Location';
-import WeatherReporter from './Weather'
+import WeatherReporter from './WeatherReporter'
 import Movies from './Movies'
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state =
     {
-      data: 0,//receives from child - empty for now
+      data: 0,//receives from state - object empty for now
       location: '',
       lat: null,
       lon: null,
       errorMessage: '',
       modalDataState: false,
-      weatherReporter: '',
+      weatherReporter: [],//array of objects
       arrayOfMoviesObj: ''
 
     };
@@ -34,41 +34,33 @@ class App extends React.Component {
     try {
       /*
       WARNING: always make sure you await for data with async
-      https://api.themoviedb.org/3/movie/550?api_key=17f3a718b0f5d36680aae68a930ccfa4
       */
       /*UPDATE: the old way without server requests */
 
       let url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.location}&format=json`;
-      console.log(url);
       let cityData = await axios.get(url);
-      this.setState({
-        data: cityData.data[0], lat: parseInt(cityData.data[0].lat), lon: parseInt(cityData.data[0].lon)
-      });//grabs data at location 0
-      this.handleForecast();
-      this.handleMovies();
+      this.setState({data: cityData.data[0], lat: cityData.data[0].lat, lon: cityData.data[0].lon});//grabs data at location 0
+      this.handleForecast();//does the heavy work for forecast
+      this.handleMovies();//does the heavy work for the movies
     }
     catch (anError) {
       this.openModal(anError);
-      //TODO: make an error message
       console.error(anError.name + ': ' + anError.message);
     }
   }
 
 
   handleForecast = async () => {
-    //TODO: check if removing default is needed
     try {
-      /*UPDATE: new way with server requesting*/
       let url = `${process.env.REACT_APP_SERVER}/weather?city_name=${this.state.location}`;
       let daWeather = await axios.get(url);
       console.log(url);
       this.setState({
-        weatherReporter: daWeather
+        weatherReporter: daWeather.data
       })
     }
     catch (anError) {
       this.openModal(anError);
-      //TODO: make an error message
       console.error(anError.name + ': ' + anError.message);
     }
   }
@@ -83,7 +75,7 @@ class App extends React.Component {
     catch(e)
     {
       this.openModal(e);
-      console.error(e.name + ': ' + e.message);
+      console.error(e.captureStackTrace());
     }
   }
 
@@ -134,10 +126,10 @@ class App extends React.Component {
             long={this.state.lon}
           />
         ) : null}
-        {this.state.weatherReporter ? (
+        {this.state.weatherReporter.length>0 ? (
           <WeatherReporter
             city={this.state.data.display_name}
-            forecast={this.state.weatherReporter.data}
+            forecast={this.state.weatherReporter}
           //weather reporter has all info to pass on
           />
         ) : null}

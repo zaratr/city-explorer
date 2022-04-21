@@ -14,15 +14,17 @@ class Movies extends React.Component
                     </Card.Title>
                     {this.props.theater.map((element, i) =>{
                         return(
+                        <Card>
                             <Card.Title key={i}>
                                 Movie name: {element.title}
                                 Movie Overview: {element.overview}
                                 Movie Average Votes: {element.average_votes}
-                                Movie image: {element.image_url}
+                                {/* Movie image: {element.image_url} */}
                                 Movie popularity: {element.popularity}
                                 Movie release date: {element.release_on}
-                            {/* <Card.Img src={element.image_url}></Card.Img> */}
                             </Card.Title>
+                            <Card.Img src={element.image_url}></Card.Img> 
+                        </Card>
                         )
                     })}
                 </Card.Body>
